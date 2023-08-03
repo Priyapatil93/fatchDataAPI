@@ -1,0 +1,93 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-md-6">
+            <table border="1">
+                <tr >
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Status</th>
+        
+                </tr>
+            <tr *ngFor="let user of userlist"(click)="onSelect(user)">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.gender}}</td>
+            <td>{{user.status}}</td>
+            </tr>
+            </table>
+            </div>
+             <!-- <div *ngIf="selecteduser">
+                <h2>{{selecteduser.name | uppercase}} </h2>
+                <div>Id:{{selecteduser.id}}</div>
+                <div>email: {{selecteduser.email}}</div>
+                <div>gender: {{selecteduser.gender}}</div>
+                <div>status: {{selecteduser.status}}</div>
+             </div> -->
+            <div id="info"class="col-md-6">
+            <h1 >Display Data using API</h1>
+            
+                <form *ngIf="selecteduser">
+                    <div class="form-group">
+                        <label>Id:</label>
+                         <input type="text" class="form-control"formControlName="id" placeholder="{{selecteduser.id}}">
+                    </div>
+                <div class="form-group">
+                    <label>Name:</label>
+                     <input type="text" class="form-control"formControlName="name" placeholder="{{selecteduser.name}}">
+                </div>
+                <div class="form-group">
+                    <label>Email:</label> 
+                    <input type="text" class="form-control" formControlName="email"placeholder="{{selecteduser.email}}">
+                </div>
+                <div class="form-group">
+                    <label>Gender:</label> 
+                    <input type="text" class="form-control" formControlName="gender" placeholder="{{selecteduser.gender}}">
+                </div>
+                <div class="form-group">
+                    <label>Status:</label>
+                     <input type="text" class="form-control" formControlName="status" placeholder="{{selecteduser.status}}">
+                </div>
+               
+              </form>    
+            </div>
+        </div>
+        </div>
+       
+   </body>
+</html>
+
+
+ <!-- <form>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Status</th>
+                </tr>
+                <tbody>
+                    <tr *ngFor="let user of userlist"(click)="onSelect(user)">
+                     <td>
+                        <input type="textarea"placeholder="{{selecteduser.id}}"[value]="selecteduser.id"class="form-control"id="id"formControlName="id"/>
+                     </td>
+                     <td>
+                        <input type="textarea"placeholder="{{selecteduser.name}}"[value]="selecteduser.name"class="form-control"id="name"formControlName="name"/>
+                     </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form> -->
